@@ -10,56 +10,66 @@ export const NAVIGATION = [
   { name: "投资者关系", href: "/investors" },
 ];
 
-// 使用本地图片路径，所有图片已下载到public目录
-// Hero轮播图使用不同的高质量医疗设备图片
+// 使用本地图片路径，优先使用用户上传的新图片
+// Hero轮播图使用高质量医疗设备图片
 export const IMAGES = {
   hero: [
     {
-      src: "/hero1.jpg",
+      src: "/NEWS_Childrens-hospital-operating-rooms.jpg",
       title: "洞见 · 未来",
       subtitle: "Zenith 7.0T 超高场磁共振，探索大脑的无限奥秘",
     },
     {
-      src: "/hero2.jpg",
+      src: "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
       title: "感知 · 生命",
       subtitle: "全数字化PET-CT，捕捉每一个微小的生命信号",
     },
     {
-      src: "/hero3.jpg",
+      src: "/modern-medical-equipment-stockcake.webp",
       title: "联结 · 世界",
       subtitle: "全球协同研发网络，让创新科技惠及每一个角落",
     },
     {
-      src: "/hero4.jpg",
+      src: "/pexels-photo-3844581.webp",
       title: "智能 · 诊疗",
       subtitle: "AI 赋能医学影像，让诊断更精准，治疗更高效",
     },
     {
-      src: "/hero5.jpg",
+      src: "/surgicalservices_feat.webp",
       title: "守护 · 健康",
       subtitle: "以患者为中心，打造有温度的医疗科技",
     },
     {
-      src: "/mri.jpg",
+      src: "/istockphoto-1027752634-612x612.jpg",
       title: "精准 · 影像",
       subtitle: "高分辨率医学影像系统，为临床诊断提供清晰视野",
     },
     {
-      src: "/ct.jpg",
+      src: "/istockphoto-1219641664-612x612.jpg",
       title: "创新 · 科技",
       subtitle: "先进CT扫描技术，快速精准的断层成像",
     },
     {
-      src: "/dr.jpg",
+      src: "/istockphoto-1297146235-612x612.jpg",
       title: "数字化 · 未来",
       subtitle: "全数字化X射线系统，提升诊断效率与准确性",
+    },
+    {
+      src: "/istockphoto-1410045037-612x612.jpg",
+      title: "卓越 · 品质",
+      subtitle: "世界一流的医疗设备，为患者提供最优质的医疗服务",
+    },
+    {
+      src: "/istockphoto-1610685617-612x612.jpg",
+      title: "专业 · 服务",
+      subtitle: "专业团队，全程支持，让医疗更安心",
     }
   ],
   products: {
-    mri: "/mri.jpg",
-    ct: "/ct.jpg",
-    dr: "/dr.jpg",
-    rt: "/rt.jpg",
+    mri: "/istockphoto-906504186-640x640.jpg",
+    ct: "/Xray_share.jpg",
+    dr: "/pexels-pixabay-159211.jpg",
+    rt: "/624f0dc1dff9bdccab032f93c33e79de78481770e79e21d3b0469daf51f02797.jpeg",
     ai: "/ai.jpg",
     us: "/us.jpg",
     dsa: "/dsa.jpg",
@@ -67,47 +77,53 @@ export const IMAGES = {
   },
   products_gallery: {
     mri: [
+      "/istockphoto-906504186-640x640.jpg",
       "/mri.jpg",
       "/mri_gallery1.jpg",
       "/mri_gallery2.jpg",
-      "/hero1.jpg",
-      "/hero2.jpg",
+      "/NEWS_Childrens-hospital-operating-rooms.jpg",
     ],
     ct: [
+      "/Xray_share.jpg",
       "/ct.jpg",
       "/gallery1.jpg",
-      "/gallery3.jpg",
-      "/hero3.jpg",
+      "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
+      "/istockphoto-1027752634-612x612.jpg",
     ],
     xr: [
+      "/pexels-pixabay-159211.jpg",
       "/dr.jpg",
       "/xr_gallery1.jpg",
-      "/hero4.jpg",
-      "/gallery2.jpg",
+      "/modern-medical-equipment-stockcake.webp",
+      "/istockphoto-1219641664-612x612.jpg",
     ],
     mi: [
       "/mi.jpg",
       "/gallery4.jpg",
-      "/hero5.jpg",
-      "/gallery5.jpg",
+      "/surgicalservices_feat.webp",
+      "/istockphoto-1297146235-612x612.jpg",
+      "/pexels-photo-3844581.webp",
     ],
     ai: [
       "/ai.jpg",
       "/gallery6.jpg",
-      "/hero1.jpg",
-      "/gallery1.jpg",
+      "/istockphoto-1410045037-612x612.jpg",
+      "/istockphoto-1610685617-612x612.jpg",
+      "/modern-medical-equipment-stockcake.webp",
     ],
     us: [
       "/us.jpg",
       "/gallery2.jpg",
-      "/hero2.jpg",
-      "/gallery3.jpg",
+      "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
+      "/pexels-photo-3844581.webp",
+      "/istockphoto-1027752634-612x612.jpg",
     ],
     dsa: [
       "/dsa.jpg",
       "/gallery4.jpg",
-      "/hero3.jpg",
-      "/gallery5.jpg",
+      "/surgicalservices_feat.webp",
+      "/istockphoto-1219641664-612x612.jpg",
+      "/NEWS_Childrens-hospital-operating-rooms.jpg",
     ],
   },
   innovation: {
@@ -117,28 +133,36 @@ export const IMAGES = {
     network: "/network.jpg",
   },
   about: {
-    building: "/building.jpg",
+    building: "/MM-UH-building_1.jpg",
     team: "/team.jpg",
     meeting: "/meeting.jpg",
-    global: "/global.jpg",
+    global: "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg",
   },
   gallery: [
+    "/NEWS_Childrens-hospital-operating-rooms.jpg",
+    "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
+    "/modern-medical-equipment-stockcake.webp",
+    "/pexels-photo-3844581.webp",
+    "/surgicalservices_feat.webp",
+    "/istockphoto-1027752634-612x612.jpg",
+    "/istockphoto-1219641664-612x612.jpg",
+    "/istockphoto-1297146235-612x612.jpg",
+    "/istockphoto-1410045037-612x612.jpg",
+    "/istockphoto-1610685617-612x612.jpg",
+    "/istockphoto-906504186-640x640.jpg",
+    "/Xray_share.jpg",
+    "/pexels-pixabay-159211.jpg",
+    "/624f0dc1dff9bdccab032f93c33e79de78481770e79e21d3b0469daf51f02797.jpeg",
+    "/360_F_500401586_oHlx9RsARSdbOblxcXB6NUpl1vlHzZqy.jpg",
+    "/large_0011_medical_campus_aerial_0.jpg",
+    "/MM-UH-building_1.jpg",
+    "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg",
     "/gallery1.jpg",
     "/gallery2.jpg",
     "/gallery3.jpg",
     "/gallery4.jpg",
     "/gallery5.jpg",
     "/gallery6.jpg",
-    "/hero1.jpg",
-    "/hero2.jpg",
-    "/hero3.jpg",
-    "/hero4.jpg",
-    "/hero5.jpg",
-    "/mri.jpg",
-    "/ct.jpg",
-    "/dr.jpg",
-    "/ai.jpg",
-    "/us.jpg",
   ]
 };
 
@@ -147,7 +171,7 @@ export const NEWS = [
     id: 1,
     title: "臻顶医疗发布新一代5.0T人体全身磁共振系统",
     date: "2025-05-15",
-    image: "/mri.jpg",
+    image: "/istockphoto-906504186-640x640.jpg",
     desc: "突破物理极限，重新定义影像诊断标准。Z-Magnet 5.0T为临床科研带来全新视角，搭载自主研发的'光梭'成像技术。",
     category: "产品发布"
   },
@@ -214,5 +238,29 @@ export const NEWS = [
     image: "/team.jpg",
     desc: "本轮融资将主要用于产品研发、市场拓展和国际化布局。",
     category: "企业动态"
+  },
+  {
+    id: 10,
+    title: "臻顶医疗新研发中心正式启用",
+    date: "2024-09-15",
+    image: "/MM-UH-building_1.jpg",
+    desc: "投资10亿元建设的全球研发中心正式启用，将加速创新技术研发。",
+    category: "企业动态"
+  },
+  {
+    id: 11,
+    title: "臻顶医疗与密歇根医学院达成合作",
+    date: "2024-08-20",
+    image: "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg",
+    desc: "双方将在医学影像AI领域展开深度合作，共同推动技术进步。",
+    category: "战略合作"
+  },
+  {
+    id: 12,
+    title: "臻顶医疗手术室解决方案获国际认可",
+    date: "2024-07-10",
+    image: "/NEWS_Childrens-hospital-operating-rooms.jpg",
+    desc: "我们的手术室解决方案获得国际医疗设备认证，为全球医院提供先进技术支持。",
+    category: "产品动态"
   }
 ];
