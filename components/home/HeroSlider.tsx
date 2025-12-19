@@ -73,14 +73,13 @@ export function HeroSlider() {
             >
               <Image
                 key={`hero-image-${idx}-${slide.src}`}
-                src={slide.src}
+                src={`${slide.src}?v=${idx}`}
                 alt={slide.title}
                 fill
                 priority={idx === 0}
                 quality={90}
                 className="object-cover"
                 sizes="100vw"
-                unoptimized={false}
               />
               {/* Overlay gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
