@@ -25,7 +25,7 @@ export function SafeImage({
   height,
   className = "",
   priority = false,
-  loading = "lazy",
+  loading,
   quality = 85,
   sizes,
   fallbackGradient = "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)",
@@ -56,6 +56,9 @@ export function SafeImage({
         height: height || 600,
       };
 
+  // Don't pass loading prop if priority is true
+  const loadingProp = priority ? undefined : (loading || "lazy");
+
   return (
     <>
       {isLoading && (
@@ -69,7 +72,7 @@ export function SafeImage({
         alt={alt}
         {...imageProps}
         priority={priority}
-        loading={loading}
+        {...(loadingProp && { loading: loadingProp })}
         quality={quality}
         className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
         onLoad={() => setIsLoading(false)}
@@ -81,4 +84,3 @@ export function SafeImage({
     </>
   );
 }
-
