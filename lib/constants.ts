@@ -38,12 +38,6 @@ export const IMAGES = {
       title: "守护 · 健康",
       subtitle: "以患者为中心，打造有温度的医疗科技",
     },
-    // 保留部分线上图片作为备选
-    {
-      src: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e13c?q=80&w=2091&auto=format&fit=crop",
-      title: "创新 · 突破",
-      subtitle: "持续创新，引领医疗科技发展新方向",
-    },
   ],
   products: {
     mri: "/mri.jpg", // 本地图片
