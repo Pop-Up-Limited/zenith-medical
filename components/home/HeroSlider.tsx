@@ -58,34 +58,28 @@ export function HeroSlider() {
       </div>
 
       <AnimatePresence mode="wait">
-        {IMAGES.hero.map((slide, idx) => {
-          if (idx !== current) return null;
-          
-          return (
-            <motion.div
-              key={`hero-slide-${idx}-${slide.src}`}
-              variants={slideVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <Image
-                key={`hero-image-${idx}-${slide.src}`}
-                src={`${slide.src}?v=${idx}`}
-                alt={slide.title}
-                fill
-                priority={idx === 0}
-                quality={90}
-                className="object-cover"
-                sizes="100vw"
-              />
-              {/* Overlay gradient for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
-            </motion.div>
-          );
-        })}
+        <motion.div
+          key={`hero-slide-${current}-${IMAGES.hero[current].src}`}
+          variants={slideVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            key={`hero-image-${current}-${IMAGES.hero[current].src}`}
+            src={IMAGES.hero[current].src}
+            alt={IMAGES.hero[current].title}
+            fill
+            priority={current === 0}
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Overlay gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
+        </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 flex items-center z-10">
