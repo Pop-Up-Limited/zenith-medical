@@ -5,33 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { IMAGES } from "@/lib/constants";
 import Link from "next/link";
+import Image from "next/image";
 
 export function HeroSlider() {
   const [current, setCurrent] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(IMAGES.hero.length).fill(false));
 
-  // 预加载所有hero图片
+  // Preload all images
   useEffect(() => {
-    const loadImages = async () => {
-      const loaded: boolean[] = [];
-      const promises = IMAGES.hero.map((slide, idx) => {
-        return new Promise<number>((resolve) => {
-          const img = new Image();
-          img.onload = () => {
-            loaded[idx] = true;
-            resolve(idx);
-          };
-          img.onerror = () => {
-            loaded[idx] = false;
-            resolve(idx);
-          };
-          img.src = slide.src;
+    IMAGES.hero.forEach((img, idx) => {
+      const image = new window.Image();
+      image.src = img.src;
+      image.onload = () => {
+        setImagesLoaded(prev => {
+          const newState = [...prev];
+          newState[idx] = true;
+          return newState;
         });
-      });
-      await Promise.all(promises);
-      setImagesLoaded(loaded);
-    };
-    loadImages();
+      };
+    });
   }, []);
 
   useEffect(() => {
@@ -49,10 +41,24 @@ export function HeroSlider() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-slate-900">
+      {/* Preload all images in background */}
+      <div className="hidden">
+        {IMAGES.hero.map((img, idx) => (
+          <Image
+            key={`preload-${idx}`}
+            src={img.src}
+            alt=""
+            width={1920}
+            height={1080}
+            priority={idx === 0}
+            quality={90}
+          />
+        ))}
+      </div>
+
       <AnimatePresence mode="wait">
         {IMAGES.hero.map((slide, idx) => {
           if (idx !== current) return null;
-          const isLoaded = imagesLoaded[idx] !== false;
           
           return (
             <motion.div
@@ -64,23 +70,15 @@ export function HeroSlider() {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              {/* Background image - 使用本地图片路径 */}
-              {isLoaded ? (
-                <img
-                  src={slide.src}
-                  alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: "center" }}
-                  loading="eager"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                  }}
-                />
-              ) : (
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900" />
-              )}
-              
+              <Image
+                src={slide.src}
+                alt={slide.title}
+                fill
+                priority={idx === 0}
+                quality={90}
+                className="object-cover"
+                sizes="100vw"
+              />
               {/* Overlay gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
             </motion.div>

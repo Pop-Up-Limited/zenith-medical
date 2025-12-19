@@ -1,6 +1,6 @@
 import { IMAGES } from "@/lib/constants";
 import { ArrowLeft, CheckCircle2, Download, PlayCircle } from "lucide-react";
-import { SafeImage } from "@/components/ui/SafeImage";
+import Image from "next/image";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -12,7 +12,6 @@ export function generateStaticParams() {
     { category: "ai" },
     { category: "us" },
     { category: "dsa" },
-    { category: "default" },
   ];
 }
 
@@ -43,38 +42,7 @@ export default function ProductDetail({ params }: { params: { category: string }
       image: IMAGES.products.dr,
       gallery: IMAGES.products_gallery.xr
     },
-    mi: {
-      title: "分子影像系统 (MI)",
-      subtitle: "精准诊疗，洞察微观",
-      desc: "臻顶医疗分子影像系统采用先进的PET-CT技术，能够从分子层面观察人体生理和病理过程，为肿瘤、神经系统疾病等提供精准的诊断依据。",
-      features: ["全身PET-CT扫描", "超高灵敏度探测器", "低剂量成像", "智能重建算法"],
-      image: IMAGES.products.rt,
-      gallery: IMAGES.products_gallery.mi || IMAGES.products_gallery.mri
-    },
-    ai: {
-      title: "智能医疗云平台",
-      subtitle: "互联互通，智慧诊断",
-      desc: "基于人工智能和大数据技术，为医疗机构提供影像存储、AI辅助诊断、远程会诊等一站式云服务解决方案。",
-      features: ["AI辅助诊断", "云端影像存储", "远程会诊平台", "数据安全加密"],
-      image: IMAGES.products.ai,
-      gallery: IMAGES.products_gallery.ai || IMAGES.gallery.slice(0, 3)
-    },
-    us: {
-      title: "超声影像系统 (US)",
-      subtitle: "便捷诊断，实时成像",
-      desc: "便携式超声设备，适用于急诊、床旁检查等多种场景，提供实时、清晰的超声影像。",
-      features: ["便携式设计", "实时成像", "多探头支持", "无线传输"],
-      image: IMAGES.products.us,
-      gallery: IMAGES.products_gallery.us || IMAGES.gallery.slice(0, 3)
-    },
-    dsa: {
-      title: "介入治疗系统 (DSA)",
-      subtitle: "微创介入，清晰导航",
-      desc: "数字化血管造影系统，为介入手术提供清晰的实时影像导航，支持心脏、神经、肿瘤等多种介入治疗。",
-      features: ["实时DSA成像", "低剂量技术", "3D重建", "智能导航"],
-      image: IMAGES.products.dsa,
-      gallery: IMAGES.products_gallery.dsa || IMAGES.gallery.slice(0, 3)
-    },
+    // Default fallback with generic data but specific images if available
     default: {
       title: "医疗影像解决方案",
       subtitle: "科技创新，守护健康",
@@ -93,7 +61,7 @@ export default function ProductDetail({ params }: { params: { category: string }
       {/* Hero Banner */}
       <div className="bg-slate-900 text-white py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0 bg-slate-800">
-             <SafeImage 
+             <Image 
                src={info.image} 
                alt={info.title} 
                fill 
@@ -101,7 +69,6 @@ export default function ProductDetail({ params }: { params: { category: string }
                quality={85}
                className="object-cover opacity-30" 
                sizes="100vw"
-               fallbackGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)"
              />
              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
         </div>
@@ -147,8 +114,8 @@ export default function ProductDetail({ params }: { params: { category: string }
           </div>
           
           <div className="space-y-8">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-               <SafeImage 
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-slate-200 border border-slate-200">
+               <Image 
                  src={info.image} 
                  alt="Product Detail" 
                  fill 
@@ -156,7 +123,6 @@ export default function ProductDetail({ params }: { params: { category: string }
                  quality={90}
                  className="object-cover" 
                  sizes="(max-width: 1024px) 100vw, 50vw"
-                 fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
                />
             </div>
             
@@ -192,8 +158,8 @@ export default function ProductDetail({ params }: { params: { category: string }
           <h2 className="text-3xl font-bold text-center mb-16">临床影像画廊</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {galleryImages.map((img: string, idx: number) => (
-               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-                  <SafeImage 
+               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group bg-slate-200">
+                  <Image 
                     src={img} 
                     alt={`Gallery ${idx}`} 
                     fill 
@@ -201,7 +167,6 @@ export default function ProductDetail({ params }: { params: { category: string }
                     quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110" 
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                </div>

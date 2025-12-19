@@ -1,18 +1,19 @@
 import { IMAGES } from "@/lib/constants";
-import { SafeImage } from "@/components/ui/SafeImage";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
     <div className="pt-24 pb-20">
       {/* Hero */}
       <div className="relative h-[60vh] bg-slate-900 mb-20 overflow-hidden">
-        <SafeImage
+        <Image
           src={IMAGES.about.building}
           alt="Company Building"
           fill
           priority
+          quality={90}
           className="object-cover opacity-60"
-          fallbackGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)"
+          sizes="100vw"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4 animate-fade-in-up">
@@ -50,14 +51,15 @@ export default function AboutPage() {
                </div>
             </div>
           </div>
-          <div className="lg:w-1/2 relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group">
-             <SafeImage
+          <div className="lg:w-1/2 relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group bg-slate-200">
+             <Image
                src={IMAGES.about.team}
                alt="Our Team"
                fill
                priority
+               quality={90}
                className="object-cover transition-transform duration-700 group-hover:scale-105"
-               fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
+               sizes="(max-width: 1024px) 100vw, 50vw"
              />
              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-10 text-white">
                 <p className="font-bold text-xl">汇聚全球顶尖人才</p>
@@ -97,18 +99,50 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 md:px-6 mb-32">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-16">走进臻顶</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 h-[600px]">
-           <div className="col-span-1 md:col-span-2 row-span-2 relative rounded-2xl overflow-hidden group">
-              <SafeImage src={IMAGES.about.meeting} alt="Meeting" fill priority className="object-cover transition-transform duration-700 group-hover:scale-105" fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)" />
+           <div className="col-span-1 md:col-span-2 row-span-2 relative rounded-2xl overflow-hidden group bg-slate-200">
+              <Image 
+                src={IMAGES.about.meeting} 
+                alt="Meeting" 
+                fill 
+                priority
+                quality={90}
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
            </div>
-           <div className="relative rounded-2xl overflow-hidden group">
-              <SafeImage src={IMAGES.innovation.research} alt="Research" fill loading="eager" className="object-cover transition-transform duration-700 group-hover:scale-105" fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)" />
+           <div className="relative rounded-2xl overflow-hidden group bg-slate-200">
+              <Image 
+                src={IMAGES.innovation.research} 
+                alt="Research" 
+                fill 
+                loading="eager"
+                quality={85}
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
            </div>
-           <div className="relative rounded-2xl overflow-hidden group">
-              <SafeImage src={IMAGES.innovation.chip} alt="Tech" fill loading="eager" className="object-cover transition-transform duration-700 group-hover:scale-105" fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)" />
+           <div className="relative rounded-2xl overflow-hidden group bg-slate-200">
+              <Image 
+                src={IMAGES.innovation.chip} 
+                alt="Tech" 
+                fill 
+                loading="eager"
+                quality={85}
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 25vw"
+              />
            </div>
-           <div className="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden group">
-              <SafeImage src={IMAGES.about.global} alt="Global" fill loading="eager" className="object-cover transition-transform duration-700 group-hover:scale-105" fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)" />
+           <div className="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden group bg-slate-200">
+              <Image 
+                src={IMAGES.about.campus1 || IMAGES.about.global} 
+                alt="Campus" 
+                fill 
+                loading="eager"
+                quality={85}
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
            </div>
         </div>
       </div>

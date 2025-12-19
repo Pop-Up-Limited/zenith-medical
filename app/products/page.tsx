@@ -3,18 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ChevronRight, Filter } from "lucide-react";
-import { SafeImage } from "@/components/ui/SafeImage";
 import { IMAGES } from "@/lib/constants";
 
 const PRODUCT_CATEGORIES = [
-  { id: "mri", name: "磁共振成像 (MRI)", count: 3, img: IMAGES.products.mri },
-  { id: "ct", name: "计算机断层扫描 (CT)", count: 3, img: IMAGES.products.ct },
-  { id: "xr", name: "X射线成像 (XR)", count: 3, img: IMAGES.products.dr },
-  { id: "mi", name: "分子影像 (MI)", count: 1, img: IMAGES.products.rt },
-  { id: "ai", name: "智能医疗云", count: 1, img: IMAGES.products.ai },
-  { id: "us", name: "超声影像 (US)", count: 1, img: IMAGES.products.us },
-  { id: "dsa", name: "介入治疗 (DSA)", count: 1, img: IMAGES.products.dsa },
+  { id: "mri", name: "磁共振成像 (MRI)", count: 5, img: IMAGES.products.mri },
+  { id: "ct", name: "计算机断层扫描 (CT)", count: 4, img: IMAGES.products.ct },
+  { id: "xr", name: "X射线成像 (XR)", count: 6, img: IMAGES.products.dr },
+  { id: "mi", name: "分子影像 (MI)", count: 2, img: IMAGES.products.rt },
+  { id: "ai", name: "智能医疗云", count: 3, img: IMAGES.products.ai },
 ];
 
 const PRODUCTS = [
@@ -32,14 +30,6 @@ const PRODUCTS = [
     category: "mri",
     desc: "全身临床应用超高场磁共振，重新定义临床标准",
     tags: ["5.0T", "全身成像", "临床突破"],
-    img: IMAGES.products.mri
-  },
-  {
-    id: "mri-30",
-    name: "Zenith MR 3.0T",
-    category: "mri",
-    desc: "临床主流高场磁共振，平衡性能与成本",
-    tags: ["3.0T", "临床主流", "高性价比"],
     img: IMAGES.products.mri
   },
   {
@@ -72,54 +62,6 @@ const PRODUCTS = [
     category: "xr",
     desc: "移动式数字化X射线摄影系统",
     tags: ["移动", "床旁摄影", "大容量电池"],
-    img: IMAGES.products.dr
-  },
-  {
-    id: "mi-pet",
-    name: "Zenith PET-CT",
-    category: "mi",
-    desc: "全身PET-CT分子影像系统，精准定位病灶",
-    tags: ["PET-CT", "分子影像", "全身扫描"],
-    img: IMAGES.products.rt
-  },
-  {
-    id: "ai-cloud",
-    name: "Zenith AI Cloud",
-    category: "ai",
-    desc: "智能医疗云平台，AI辅助诊断",
-    tags: ["AI诊断", "云端存储", "远程会诊"],
-    img: IMAGES.products.ai
-  },
-  {
-    id: "us-portable",
-    name: "Zenith Portable US",
-    category: "us",
-    desc: "便携式超声诊断系统，随时随地精准检查",
-    tags: ["便携", "实时成像", "多探头"],
-    img: IMAGES.products.us
-  },
-  {
-    id: "dsa-angiography",
-    name: "Zenith DSA System",
-    category: "dsa",
-    desc: "数字化血管造影系统，精准介入导航",
-    tags: ["DSA", "介入导航", "3D重建"],
-    img: IMAGES.products.dsa
-  },
-  {
-    id: "ct-128",
-    name: "Zenith CT 128",
-    category: "ct",
-    desc: "128层螺旋CT，满足常规临床需求",
-    tags: ["128层", "快速扫描", "低剂量"],
-    img: IMAGES.products.ct
-  },
-  {
-    id: "dr-vertical",
-    name: "Zenith DR Vertical",
-    category: "xr",
-    desc: "立式数字化X射线摄影系统",
-    tags: ["立式", "全自动", "高清成像"],
     img: IMAGES.products.dr
   }
 ];
@@ -197,14 +139,12 @@ export default function ProductsPage() {
                   key={product.id}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group"
                 >
-                  <div className="relative h-64 overflow-hidden">
-                    <SafeImage
+                  <div className="relative h-64 bg-slate-100 overflow-hidden">
+                    <Image
                       src={product.img}
                       alt={product.name}
                       fill
-                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
                     />
                     <div className="absolute top-4 right-4 flex flex-col gap-2">
                       {product.tags.map(tag => (
