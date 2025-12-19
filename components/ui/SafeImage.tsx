@@ -81,7 +81,6 @@ export function SafeImage({
           setHasError(true);
           setIsLoading(false);
         }}
-        unoptimized={false}
       />
     </>
   );
