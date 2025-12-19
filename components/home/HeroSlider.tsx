@@ -19,24 +19,24 @@ export function HeroSlider() {
       
       img.onload = () => {
         setImagesReady(prev => {
-          const new = [...prev];
-          new[idx] = true;
-          return new;
+          const updated = [...prev];
+          updated[idx] = true;
+          return updated;
         });
       };
       
       img.onerror = () => {
         console.warn(`Failed to load hero image ${idx}: ${slide.src}`);
         setImageErrors(prev => {
-          const new = [...prev];
-          new[idx] = true;
-          return new;
+          const updated = [...prev];
+          updated[idx] = true;
+          return updated;
         });
         // Still mark as ready to show fallback
         setImagesReady(prev => {
-          const new = [...prev];
-          new[idx] = true;
-          return new;
+          const updated = [...prev];
+          updated[idx] = true;
+          return updated;
         });
       };
       
