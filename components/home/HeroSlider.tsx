@@ -8,41 +8,6 @@ import Link from "next/link";
 
 export function HeroSlider() {
   const [current, setCurrent] = useState(0);
-  const [imagesReady, setImagesReady] = useState<boolean[]>(new Array(IMAGES.hero.length).fill(false));
-  const [imageErrors, setImageErrors] = useState<boolean[]>(new Array(IMAGES.hero.length).fill(false));
-
-  // Preload all images with error handling
-  useEffect(() => {
-    IMAGES.hero.forEach((slide, idx) => {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      
-      img.onload = () => {
-        setImagesReady(prev => {
-          const updated = [...prev];
-          updated[idx] = true;
-          return updated;
-        });
-      };
-      
-      img.onerror = () => {
-        console.warn(`Failed to load hero image ${idx}: ${slide.src}`);
-        setImageErrors(prev => {
-          const updated = [...prev];
-          updated[idx] = true;
-          return updated;
-        });
-        // Still mark as ready to show fallback
-        setImagesReady(prev => {
-          const updated = [...prev];
-          updated[idx] = true;
-          return updated;
-        });
-      };
-      
-      img.src = slide.src;
-    });
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -57,24 +22,11 @@ export function HeroSlider() {
     exit: { opacity: 0 },
   };
 
-  // Fallback gradient backgrounds for each slide
-  const fallbackGradients = [
-    "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%)", // Blue gradient
-    "linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #c4b5fd 100%)", // Purple gradient
-    "linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%)", // Green gradient
-    "linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%)", // Red gradient
-    "linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%)", // Orange gradient
-  ];
-
   return (
     <div className="relative h-screen w-full overflow-hidden bg-slate-900">
       <AnimatePresence mode="wait">
         {IMAGES.hero.map((slide, idx) => {
           if (idx !== current) return null;
-          
-          const isReady = imagesReady[idx];
-          const hasError = imageErrors[idx];
-          const showImage = isReady && !hasError;
           
           return (
             <motion.div
@@ -86,27 +38,18 @@ export function HeroSlider() {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              {/* Background image or fallback */}
-              {showImage ? (
-                <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `url(${slide.src})`,
-                  }}
-                />
-              ) : (
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: fallbackGradients[idx] || fallbackGradients[0],
-                  }}
-                />
-              )}
-              
-              {/* Loading placeholder */}
-              {!isReady && (
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 animate-pulse" />
-              )}
+              {/* Background image - 直接使用img标签确保加载 */}
+              <img
+                src={slide.src}
+                alt={slide.title}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center" }}
+                onError={(e) => {
+                  // 如果加载失败，使用渐变背景
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = "none";
+                }}
+              />
               
               {/* Overlay gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />

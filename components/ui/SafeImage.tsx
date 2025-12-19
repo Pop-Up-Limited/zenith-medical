@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 interface SafeImageProps {
   src: string;
@@ -33,6 +32,7 @@ export function SafeImage({
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  // 如果出错，直接显示渐变背景
   if (hasError) {
     return (
       <div
@@ -46,18 +46,10 @@ export function SafeImage({
     );
   }
 
-  const imageProps = fill
-    ? {
-        fill: true as const,
-        sizes: sizes || "100vw",
-      }
-    : {
-        width: width || 800,
-        height: height || 600,
-      };
-
-  // Don't pass loading prop if priority is true
-  const loadingProp = priority ? undefined : (loading || "lazy");
+  // 直接使用img标签，因为Next.js静态导出时Image组件可能有问题
+  const style = fill
+    ? { position: "absolute" as const, inset: 0, width: "100%", height: "100%" }
+    : { width: width || 800, height: height || 600 };
 
   return (
     <>
@@ -67,14 +59,12 @@ export function SafeImage({
           style={fill ? { position: "absolute", inset: 0 } : { width, height }}
         />
       )}
-      <Image
+      <img
         src={src}
         alt={alt}
-        {...imageProps}
-        priority={priority}
-        {...(loadingProp && { loading: loadingProp })}
-        quality={quality}
-        className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
+        className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300 ${fill ? "object-cover w-full h-full" : ""}`}
+        style={style}
+        loading={priority ? "eager" : (loading || "lazy")}
         onLoad={() => setIsLoading(false)}
         onError={() => {
           console.warn(`Image failed to load: ${src}`);
