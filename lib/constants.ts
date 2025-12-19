@@ -62,19 +62,19 @@ export const IMAGES = {
       "/istockphoto-1410045037-612x612.jpg",
       "/istockphoto-1610685617-612x612.jpg",
       "/istockphoto-906504186-640x640.jpg",
-      "/pexels-photo-3844581.webp",
+      "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
     ],
     xr: [
       "/xr_gallery1.jpg",
       "/Xray_share.jpg",
-      "/pexels-pixabay-159211.jpg",
-      "/medical-equipment-background-group-health-workers-icu-medical-equipment-background-group-health-132942616.webp",
       "/modern-medical-equipment-stockcake.webp",
-    ],
-    mi: [
       "/surgicalservices_feat.webp",
       "/NEWS_Childrens-hospital-operating-rooms.jpg",
+    ],
+    mi: [
       "https://images.unsplash.com/photo-1579684385180-164e6f43e112?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1584515933487-9d3005c010aa?auto=format&fit=crop&q=80&w=800",
     ],
     ai: [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
