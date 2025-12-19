@@ -12,6 +12,7 @@ export function generateStaticParams() {
     { category: "ai" },
     { category: "us" },
     { category: "dsa" },
+    { category: "default" },
   ];
 }
 

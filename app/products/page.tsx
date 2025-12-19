@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, ChevronRight, Filter } from "lucide-react";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { IMAGES } from "@/lib/constants";
 
 const PRODUCT_CATEGORIES = [
@@ -30,6 +30,14 @@ const PRODUCTS = [
     category: "mri",
     desc: "全身临床应用超高场磁共振，重新定义临床标准",
     tags: ["5.0T", "全身成像", "临床突破"],
+    img: IMAGES.products.mri
+  },
+  {
+    id: "mri-30",
+    name: "Zenith MR 3.0T",
+    category: "mri",
+    desc: "临床主流高场磁共振，平衡性能与成本",
+    tags: ["3.0T", "临床主流", "高性价比"],
     img: IMAGES.products.mri
   },
   {
@@ -63,6 +71,22 @@ const PRODUCTS = [
     desc: "移动式数字化X射线摄影系统",
     tags: ["移动", "床旁摄影", "大容量电池"],
     img: IMAGES.products.dr
+  },
+  {
+    id: "mi-pet",
+    name: "Zenith PET-CT",
+    category: "mi",
+    desc: "全身PET-CT分子影像系统，精准定位病灶",
+    tags: ["PET-CT", "分子影像", "全身扫描"],
+    img: IMAGES.products.rt
+  },
+  {
+    id: "ai-cloud",
+    name: "Zenith AI Cloud",
+    category: "ai",
+    desc: "智能医疗云平台，AI辅助诊断",
+    tags: ["AI诊断", "云端存储", "远程会诊"],
+    img: IMAGES.products.ai
   }
 ];
 
@@ -139,12 +163,14 @@ export default function ProductsPage() {
                   key={product.id}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group"
                 >
-                  <div className="relative h-64 bg-slate-100 overflow-hidden">
-                    <Image
+                  <div className="relative h-64 overflow-hidden">
+                    <SafeImage
                       src={product.img}
                       alt={product.name}
                       fill
+                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
                     />
                     <div className="absolute top-4 right-4 flex flex-col gap-2">
                       {product.tags.map(tag => (
