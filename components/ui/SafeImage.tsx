@@ -77,9 +77,11 @@ export function SafeImage({
         className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
         onLoad={() => setIsLoading(false)}
         onError={() => {
+          console.warn(`Image failed to load: ${src}`);
           setHasError(true);
           setIsLoading(false);
         }}
+        unoptimized={false}
       />
     </>
   );
