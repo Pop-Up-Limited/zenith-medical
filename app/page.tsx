@@ -1,7 +1,7 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { IMAGES, NEWS } from "@/lib/constants";
 import { ArrowRight, Activity, Cpu, Microscope, Globe, BarChart3, Users, Zap } from "lucide-react";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/SafeImage";
 import Link from "next/link";
 
 export default function Home() {
@@ -34,9 +34,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {productCategories.map((item, idx) => (
               <div key={idx} className="group relative overflow-hidden rounded-2xl shadow-lg bg-white h-[320px] hover:shadow-2xl transition-all duration-300">
-                <div className="absolute inset-0 bg-slate-200 animate-pulse" />
                 <div className="absolute inset-0">
-                  <Image
+                  <SafeImage
                     src={item.img}
                     alt={item.name}
                     fill
@@ -45,6 +44,7 @@ export default function Home() {
                     quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    fallbackGradient="linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%)"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                 </div>
@@ -108,8 +108,8 @@ export default function Home() {
             </div>
             
             <div className="lg:w-1/2 relative">
-               <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl bg-slate-200">
-                <Image
+               <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
+                <SafeImage
                   src={IMAGES.innovation.lab}
                   alt="Innovation Lab"
                   fill
@@ -117,6 +117,7 @@ export default function Home() {
                   quality={90}
                   className="object-cover hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  fallbackGradient="linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)"
                 />
                </div>
                {/* Floating cards */}
@@ -148,8 +149,8 @@ export default function Home() {
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[600px] md:h-[500px]">
               {/* Large item */}
-              <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group bg-slate-800">
-                 <Image 
+              <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group">
+                 <SafeImage 
                    src={IMAGES.gallery[0]} 
                    alt="Gallery 1" 
                    fill 
@@ -157,12 +158,13 @@ export default function Home() {
                    quality={90}
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
                    sizes="(max-width: 768px) 100vw, 66vw"
+                   fallbackGradient="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
                  />
                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
               {/* Smaller items */}
-              <div className="relative rounded-xl overflow-hidden group bg-slate-800">
-                 <Image 
+              <div className="relative rounded-xl overflow-hidden group">
+                 <SafeImage 
                    src={IMAGES.gallery[1]} 
                    alt="Gallery 2" 
                    fill 
@@ -170,10 +172,11 @@ export default function Home() {
                    quality={85}
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
                    sizes="(max-width: 768px) 100vw, 33vw"
+                   fallbackGradient="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
                  />
               </div>
-              <div className="relative rounded-xl overflow-hidden group bg-slate-800">
-                 <Image 
+              <div className="relative rounded-xl overflow-hidden group">
+                 <SafeImage 
                    src={IMAGES.gallery[4]} 
                    alt="Gallery 3" 
                    fill 
@@ -181,6 +184,7 @@ export default function Home() {
                    quality={85}
                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
                    sizes="(max-width: 768px) 100vw, 33vw"
+                   fallbackGradient="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
                  />
               </div>
            </div>
@@ -191,7 +195,7 @@ export default function Home() {
       <section className="py-24 bg-white">
          <div className="container mx-auto px-4 md:px-6">
             <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white min-h-[500px] flex items-center">
-               <Image 
+               <SafeImage 
                  src={IMAGES.about.global} 
                  alt="Global Map" 
                  fill 
@@ -199,6 +203,7 @@ export default function Home() {
                  quality={85}
                  className="object-cover opacity-30" 
                  sizes="100vw"
+                 fallbackGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)"
                />
                <div className="relative z-10 p-12 md:p-24 w-full">
                   <div className="max-w-3xl">
@@ -259,8 +264,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {NEWS.slice(0, 3).map((news) => (
               <Link href={`/news`} key={news.id} className="group cursor-pointer flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden bg-slate-200">
-                  <Image
+                <div className="relative h-64 overflow-hidden">
+                  <SafeImage
                     src={news.image}
                     alt={news.title}
                     fill
@@ -268,6 +273,7 @@ export default function Home() {
                     quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
                   />
                   <div className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                     {news.category}
