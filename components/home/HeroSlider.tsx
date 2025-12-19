@@ -45,13 +45,14 @@ export function HeroSlider() {
       <div className="hidden">
         {IMAGES.hero.map((img, idx) => (
           <Image
-            key={`preload-${idx}`}
+            key={`preload-${idx}-${img.src}`}
             src={img.src}
             alt=""
             width={1920}
             height={1080}
             priority={idx === 0}
             quality={90}
+            unoptimized={false}
           />
         ))}
       </div>
@@ -62,7 +63,7 @@ export function HeroSlider() {
           
           return (
             <motion.div
-              key={idx}
+              key={`hero-slide-${idx}-${slide.src}`}
               variants={slideVariants}
               initial="initial"
               animate="animate"
@@ -71,6 +72,7 @@ export function HeroSlider() {
               className="absolute inset-0"
             >
               <Image
+                key={`hero-image-${idx}-${slide.src}`}
                 src={slide.src}
                 alt={slide.title}
                 fill
@@ -78,6 +80,7 @@ export function HeroSlider() {
                 quality={90}
                 className="object-cover"
                 sizes="100vw"
+                unoptimized={false}
               />
               {/* Overlay gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
