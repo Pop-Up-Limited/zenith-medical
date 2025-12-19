@@ -1,6 +1,6 @@
 import { IMAGES } from "@/lib/constants";
 import { ArrowLeft, CheckCircle2, Download, PlayCircle } from "lucide-react";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/SafeImage";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -61,7 +61,7 @@ export default function ProductDetail({ params }: { params: { category: string }
       {/* Hero Banner */}
       <div className="bg-slate-900 text-white py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0 bg-slate-800">
-             <Image 
+             <SafeImage 
                src={info.image} 
                alt={info.title} 
                fill 
@@ -69,6 +69,7 @@ export default function ProductDetail({ params }: { params: { category: string }
                quality={85}
                className="object-cover opacity-30" 
                sizes="100vw"
+               fallbackGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)"
              />
              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
         </div>
@@ -114,8 +115,8 @@ export default function ProductDetail({ params }: { params: { category: string }
           </div>
           
           <div className="space-y-8">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-slate-200 border border-slate-200">
-               <Image 
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+               <SafeImage 
                  src={info.image} 
                  alt="Product Detail" 
                  fill 
@@ -123,6 +124,7 @@ export default function ProductDetail({ params }: { params: { category: string }
                  quality={90}
                  className="object-cover" 
                  sizes="(max-width: 1024px) 100vw, 50vw"
+                 fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
                />
             </div>
             
@@ -158,8 +160,8 @@ export default function ProductDetail({ params }: { params: { category: string }
           <h2 className="text-3xl font-bold text-center mb-16">临床影像画廊</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {galleryImages.map((img: string, idx: number) => (
-               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group bg-slate-200">
-                  <Image 
+               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+                  <SafeImage 
                     src={img} 
                     alt={`Gallery ${idx}`} 
                     fill 
@@ -167,6 +169,7 @@ export default function ProductDetail({ params }: { params: { category: string }
                     quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110" 
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    fallbackGradient="linear-gradient(135deg, #64748b 0%, #94a3b8 100%)"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                </div>

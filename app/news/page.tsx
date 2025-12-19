@@ -1,5 +1,5 @@
 import { NEWS } from "@/lib/constants";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/SafeImage";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -13,7 +13,7 @@ export default function NewsPage() {
           {NEWS.map((news) => (
             <div key={news.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative h-56">
-                <Image src={news.image} alt={news.title} fill className="object-cover" />
+                <SafeImage src={news.image} alt={news.title} fill loading="lazy" className="object-cover" fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)" />
               </div>
               <div className="p-6">
                 <div className="text-sm text-slate-500 mb-2">{news.date}</div>

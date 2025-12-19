@@ -1,5 +1,5 @@
 import { IMAGES } from "@/lib/constants";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { Cpu, Globe, Zap, Network, Microscope, Dna, Share2 } from "lucide-react";
 
 export default function InnovationPage() {
@@ -18,7 +18,7 @@ export default function InnovationPage() {
         {/* Feature 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32 items-center">
            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-             <Image src={IMAGES.innovation.chip} alt="Chip Technology" fill className="object-cover" />
+             <SafeImage src={IMAGES.innovation.chip} alt="Chip Technology" fill priority className="object-cover" fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)" />
              <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent" />
            </div>
            <div className="flex flex-col justify-center">
@@ -48,7 +48,7 @@ export default function InnovationPage() {
         {/* Feature 2 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32 items-center lg:flex-row-reverse">
            <div className="lg:order-2 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-             <Image src={IMAGES.innovation.lab} alt="Lab" fill className="object-cover" />
+             <SafeImage src={IMAGES.innovation.lab} alt="Lab" fill priority className="object-cover" fallbackGradient="linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)" />
            </div>
            <div className="lg:order-1 flex flex-col justify-center">
              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-900">产学研医，深度融合</h2>
@@ -76,7 +76,7 @@ export default function InnovationPage() {
 
         {/* Global Network */}
         <div className="bg-slate-900 text-white rounded-[2.5rem] p-12 md:p-24 relative overflow-hidden shadow-2xl">
-          <Image src={IMAGES.innovation.network} alt="Network" fill className="object-cover opacity-20" />
+          <SafeImage src={IMAGES.innovation.network} alt="Network" fill priority className="object-cover opacity-20" fallbackGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 100%)" />
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">全球研发网络</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
