@@ -14,27 +14,27 @@ export const NAVIGATION = [
 export const IMAGES = {
   hero: [
     {
-      src: "/hero1.jpg", // 本地图片
+      src: "/building.jpg", // 本地图片 - 公司建筑
       title: "洞见 · 未来",
       subtitle: "Zenith 7.0T 超高场磁共振，探索大脑的无限奥秘",
     },
     {
-      src: "/hero2.jpg", // 本地图片
+      src: "/global.jpg", // 本地图片 - 全球视野
       title: "感知 · 生命",
       subtitle: "全数字化PET-CT，捕捉每一个微小的生命信号",
     },
     {
-      src: "/hero3.jpg", // 本地图片
+      src: "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg", // 本地图片 - 医疗建筑
       title: "联结 · 世界",
       subtitle: "全球协同研发网络，让创新科技惠及每一个角落",
     },
     {
-      src: "/hero4.jpg", // 本地图片
+      src: "/MM-UH-building_1.jpg", // 本地图片 - 医疗建筑
       title: "智能 · 诊疗",
       subtitle: "AI 赋能医学影像，让诊断更精准，治疗更高效",
     },
     {
-      src: "/hero5.jpg", // 本地图片
+      src: "/gallery1.jpg", // 本地图片 - 医疗场景
       title: "守护 · 健康",
       subtitle: "以患者为中心，打造有温度的医疗科技",
     },
