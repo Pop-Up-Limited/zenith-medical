@@ -105,16 +105,16 @@ export const IMAGES = {
     campus3: "/hero4.jpg", // 使用不同的图片
   },
   gallery: [
-    "/gallery2.jpg", // gallery1 已在 hero 中使用，跳过
-    "/gallery3.jpg",
-    "/gallery4.jpg",
-    "/gallery5.jpg",
-    "/gallery6.jpg",
-    "/pexels-photo-3844581.webp", // 使用不同的图片
+    "/gallery4.jpg", // 唯一不同的 gallery 图片
+    "/gallery6.jpg", // 唯一不同的 gallery 图片
+    "/pexels-photo-3844581.webp", // 不同的图片
+    "/pexels-pixabay-159211.jpg", // 不同的图片
+    "/Xray_share.jpg", // 不同的图片
+    "/NEWS_Childrens-hospital-operating-rooms.jpg", // 不同的图片
+    "/surgicalservices_feat.webp", // 不同的图片
+    "/modern-medical-equipment-stockcake.webp", // 不同的图片
     "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1516549655169-df83a06745d6?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&q=80&w=800",
   ]
 };
 

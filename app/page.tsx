@@ -174,7 +174,7 @@ export default function Home() {
               </div>
               <div className="relative rounded-xl overflow-hidden group bg-slate-800">
                  <Image 
-                   src={IMAGES.gallery[2] || IMAGES.gallery[4]} 
+                   src={IMAGES.gallery[2]} 
                    alt="Gallery 3" 
                    fill 
                    loading="eager"
