@@ -14,27 +14,27 @@ export const NAVIGATION = [
 export const IMAGES = {
   hero: [
     {
-      src: "/hero1.jpg",
+      src: "/building.jpg", // 本地图片 - 公司建筑
       title: "洞见 · 未来",
       subtitle: "Zenith 7.0T 超高场磁共振，探索大脑的无限奥秘",
     },
     {
-      src: "/hero2.jpg",
+      src: "/global.jpg", // 本地图片 - 全球视野
       title: "感知 · 生命",
       subtitle: "全数字化PET-CT，捕捉每一个微小的生命信号",
     },
     {
-      src: "/hero3.jpg",
+      src: "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg", // 本地图片 - 医疗建筑
       title: "联结 · 世界",
       subtitle: "全球协同研发网络，让创新科技惠及每一个角落",
     },
     {
-      src: "/hero4.jpg",
+      src: "/MM-UH-building_1.jpg", // 本地图片 - 医疗建筑
       title: "智能 · 诊疗",
       subtitle: "AI 赋能医学影像，让诊断更精准，治疗更高效",
     },
     {
-      src: "/hero5.jpg",
+      src: "/gallery1.jpg", // 本地图片 - 医疗场景
       title: "守护 · 健康",
       subtitle: "以患者为中心，打造有温度的医疗科技",
     },
@@ -96,21 +96,21 @@ export const IMAGES = {
     network: "/network.jpg",
   },
   about: {
-    building: "/building.jpg",
+    building: "/large_0011_medical_campus_aerial_0.jpg", // 使用不同的图片，不重复 hero
     team: "/team.jpg",
     meeting: "/meeting.jpg",
-    global: "/global.jpg",
-    campus1: "/large_0011_medical_campus_aerial_0.jpg",
-    campus2: "/Michigan-Medicine-Health-Care-Pavilion_1900.jpg",
-    campus3: "/MM-UH-building_1.jpg",
+    global: "/hero1.jpg", // 使用 hero1 而不是 global（global 已在 hero 中使用）
+    campus1: "/hero2.jpg", // 使用不同的图片
+    campus2: "/hero3.jpg", // 使用不同的图片
+    campus3: "/hero4.jpg", // 使用不同的图片
   },
   gallery: [
-    "/gallery1.jpg",
-    "/gallery2.jpg",
+    "/gallery2.jpg", // gallery1 已在 hero 中使用，跳过
     "/gallery3.jpg",
     "/gallery4.jpg",
     "/gallery5.jpg",
     "/gallery6.jpg",
+    "/pexels-photo-3844581.webp", // 使用不同的图片
     "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1516549655169-df83a06745d6?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=800",

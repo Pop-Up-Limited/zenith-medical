@@ -209,7 +209,7 @@ export default function Home() {
          <div className="container mx-auto px-4 md:px-6">
             <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white min-h-[500px] flex items-center">
                <Image 
-                 src={IMAGES.about.global} 
+                 src="/pexels-pixabay-159211.jpg" 
                  alt="Global Map" 
                  fill 
                  priority
