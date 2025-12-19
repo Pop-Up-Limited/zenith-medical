@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { COMPANY_NAME, COMPANY_NAME_EN, NAVIGATION } from "@/lib/constants";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
@@ -9,9 +10,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
-                <span className="text-white font-bold text-lg">Z</span>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="Zenith Medical Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <span className="font-bold text-xl text-white">{COMPANY_NAME}</span>
             </div>

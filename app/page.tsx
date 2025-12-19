@@ -34,12 +34,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {productCategories.map((item, idx) => (
               <div key={idx} className="group relative overflow-hidden rounded-2xl shadow-lg bg-white h-[320px] hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-0 bg-slate-200 animate-pulse" />
                 <div className="absolute inset-0">
                   <Image
                     src={item.img}
                     alt={item.name}
                     fill
+                    priority={idx < 4}
+                    loading={idx < 4 ? "eager" : "lazy"}
+                    quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                 </div>
@@ -103,12 +108,15 @@ export default function Home() {
             </div>
             
             <div className="lg:w-1/2 relative">
-               <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
+               <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl bg-slate-200">
                 <Image
                   src={IMAGES.innovation.lab}
                   alt="Innovation Lab"
                   fill
+                  priority
+                  quality={90}
                   className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                </div>
                {/* Floating cards */}
@@ -140,16 +148,40 @@ export default function Home() {
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[600px] md:h-[500px]">
               {/* Large item */}
-              <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group">
-                 <Image src={IMAGES.gallery[0]} alt="Gallery 1" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group bg-slate-800">
+                 <Image 
+                   src={IMAGES.gallery[0]} 
+                   alt="Gallery 1" 
+                   fill 
+                   priority
+                   quality={90}
+                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                   sizes="(max-width: 768px) 100vw, 66vw"
+                 />
                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
               {/* Smaller items */}
-              <div className="relative rounded-xl overflow-hidden group">
-                 <Image src={IMAGES.gallery[1]} alt="Gallery 2" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="relative rounded-xl overflow-hidden group bg-slate-800">
+                 <Image 
+                   src={IMAGES.gallery[1]} 
+                   alt="Gallery 2" 
+                   fill 
+                   loading="eager"
+                   quality={85}
+                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                   sizes="(max-width: 768px) 100vw, 33vw"
+                 />
               </div>
-              <div className="relative rounded-xl overflow-hidden group">
-                 <Image src={IMAGES.gallery[4]} alt="Gallery 3" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="relative rounded-xl overflow-hidden group bg-slate-800">
+                 <Image 
+                   src={IMAGES.gallery[4]} 
+                   alt="Gallery 3" 
+                   fill 
+                   loading="eager"
+                   quality={85}
+                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                   sizes="(max-width: 768px) 100vw, 33vw"
+                 />
               </div>
            </div>
         </div>
@@ -159,7 +191,15 @@ export default function Home() {
       <section className="py-24 bg-white">
          <div className="container mx-auto px-4 md:px-6">
             <div className="relative rounded-3xl overflow-hidden bg-slate-900 text-white min-h-[500px] flex items-center">
-               <Image src={IMAGES.about.global} alt="Global Map" fill className="object-cover opacity-30" />
+               <Image 
+                 src={IMAGES.about.global} 
+                 alt="Global Map" 
+                 fill 
+                 priority
+                 quality={85}
+                 className="object-cover opacity-30" 
+                 sizes="100vw"
+               />
                <div className="relative z-10 p-12 md:p-24 w-full">
                   <div className="max-w-3xl">
                     <h2 className="text-3xl md:text-5xl font-bold mb-8">服务全球 60+ 国家与地区</h2>
@@ -219,12 +259,15 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {NEWS.slice(0, 3).map((news) => (
               <Link href={`/news`} key={news.id} className="group cursor-pointer flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden bg-slate-200">
                   <Image
                     src={news.image}
                     alt={news.title}
                     fill
+                    loading="lazy"
+                    quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                     {news.category}

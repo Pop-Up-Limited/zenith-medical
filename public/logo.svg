@@ -1,0 +1,33 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 外圈渐变 -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆角矩形 -->
+  <rect width="40" height="40" rx="8" fill="url(#logoGradient)"/>
+  
+  <!-- 内部医疗十字架 + Z 字母组合 -->
+  <g transform="translate(8, 8)">
+    <!-- 十字架（医疗象征） -->
+    <rect x="6" y="2" width="4" height="20" rx="2" fill="white" opacity="0.9"/>
+    <rect x="2" y="10" width="12" height="4" rx="2" fill="white" opacity="0.9"/>
+    
+    <!-- Z 字母（Zenith） -->
+    <path d="M 4 4 L 20 4 L 20 8 L 8 8 L 8 12 L 20 12 L 20 16 L 4 16 Z" 
+          fill="white" 
+          opacity="0.95"
+          transform="translate(0, 4)"/>
+  </g>
+  
+  <!-- 顶部光效 -->
+  <rect x="0" y="0" width="40" height="12" rx="8" fill="white" opacity="0.15"/>
+</svg>
+

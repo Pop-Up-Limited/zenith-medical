@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Globe, Search, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAVIGATION, COMPANY_NAME } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,13 +32,19 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-50">
-            <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
-              <span className="text-white font-bold text-lg">Z</span>
+          <Link href="/" className="flex items-center gap-3 z-50 group">
+            <div className="relative w-10 h-10 flex-shrink-0">
+              <Image
+                src="/logo.svg"
+                alt="Zenith Medical Logo"
+                fill
+                className="object-contain transition-transform duration-300 group-hover:scale-110"
+                priority
+              />
             </div>
             <span
               className={cn(
-                "font-bold text-xl tracking-wide",
+                "font-bold text-xl tracking-wide transition-colors",
                 isScrolled ? "text-slate-900" : "text-white"
               )}
             >
@@ -127,4 +134,3 @@ export function Header() {
     </header>
   );
 }
-

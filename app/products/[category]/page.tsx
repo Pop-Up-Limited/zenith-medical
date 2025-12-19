@@ -60,8 +60,16 @@ export default function ProductDetail({ params }: { params: { category: string }
     <div className="pt-24 min-h-screen">
       {/* Hero Banner */}
       <div className="bg-slate-900 text-white py-32 relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-             <Image src={info.image} alt={info.title} fill className="object-cover opacity-30" />
+        <div className="absolute inset-0 z-0 bg-slate-800">
+             <Image 
+               src={info.image} 
+               alt={info.title} 
+               fill 
+               priority
+               quality={85}
+               className="object-cover opacity-30" 
+               sizes="100vw"
+             />
              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -106,8 +114,16 @@ export default function ProductDetail({ params }: { params: { category: string }
           </div>
           
           <div className="space-y-8">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-slate-100 border border-slate-200">
-               <Image src={info.image} alt="Product Detail" fill className="object-cover" />
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-slate-200 border border-slate-200">
+               <Image 
+                 src={info.image} 
+                 alt="Product Detail" 
+                 fill 
+                 priority
+                 quality={90}
+                 className="object-cover" 
+                 sizes="(max-width: 1024px) 100vw, 50vw"
+               />
             </div>
             
             {/* Spec Card */}
@@ -142,8 +158,16 @@ export default function ProductDetail({ params }: { params: { category: string }
           <h2 className="text-3xl font-bold text-center mb-16">临床影像画廊</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {galleryImages.map((img: string, idx: number) => (
-               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-                  <Image src={img} alt={`Gallery ${idx}`} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+               <div key={idx} className="relative h-80 rounded-2xl overflow-hidden shadow-lg group bg-slate-200">
+                  <Image 
+                    src={img} 
+                    alt={`Gallery ${idx}`} 
+                    fill 
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    quality={85}
+                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                </div>
              ))}
