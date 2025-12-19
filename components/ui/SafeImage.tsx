@@ -46,9 +46,9 @@ export function SafeImage({
     );
   }
 
-  // 直接使用img标签，因为Next.js静态导出时Image组件可能有问题
+  // 直接使用img标签，确保图片能加载
   const style = fill
-    ? { position: "absolute" as const, inset: 0, width: "100%", height: "100%" }
+    ? { position: "absolute" as const, inset: 0, width: "100%", height: "100%", objectFit: "cover" as const }
     : { width: width || 800, height: height || 600 };
 
   return (
@@ -62,14 +62,16 @@ export function SafeImage({
       <img
         src={src}
         alt={alt}
-        className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300 ${fill ? "object-cover w-full h-full" : ""}`}
+        className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
         style={style}
         loading={priority ? "eager" : (loading || "lazy")}
         onLoad={() => setIsLoading(false)}
-        onError={() => {
+        onError={(e) => {
           console.warn(`Image failed to load: ${src}`);
           setHasError(true);
           setIsLoading(false);
+          // 隐藏失败的图片
+          (e.target as HTMLImageElement).style.display = "none";
         }}
       />
     </>
