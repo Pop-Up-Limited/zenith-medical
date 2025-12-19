@@ -11,6 +11,7 @@ export const NAVIGATION = [
 ];
 
 // 使用本地图片路径，所有图片已下载到public目录
+// Hero轮播图使用不同的高质量医疗设备图片
 export const IMAGES = {
   hero: [
     {
@@ -37,6 +38,21 @@ export const IMAGES = {
       src: "/hero5.jpg",
       title: "守护 · 健康",
       subtitle: "以患者为中心，打造有温度的医疗科技",
+    },
+    {
+      src: "/mri.jpg",
+      title: "精准 · 影像",
+      subtitle: "高分辨率医学影像系统，为临床诊断提供清晰视野",
+    },
+    {
+      src: "/ct.jpg",
+      title: "创新 · 科技",
+      subtitle: "先进CT扫描技术，快速精准的断层成像",
+    },
+    {
+      src: "/dr.jpg",
+      title: "数字化 · 未来",
+      subtitle: "全数字化X射线系统，提升诊断效率与准确性",
     }
   ],
   products: {
@@ -54,37 +70,44 @@ export const IMAGES = {
       "/mri.jpg",
       "/mri_gallery1.jpg",
       "/mri_gallery2.jpg",
-      "/news4.jpg",
+      "/hero1.jpg",
+      "/hero2.jpg",
     ],
     ct: [
       "/ct.jpg",
+      "/gallery1.jpg",
       "/gallery3.jpg",
-      "/news5.jpg",
+      "/hero3.jpg",
     ],
     xr: [
       "/dr.jpg",
       "/xr_gallery1.jpg",
-      "/hero2.jpg",
+      "/hero4.jpg",
+      "/gallery2.jpg",
     ],
     mi: [
       "/mi.jpg",
-      "/gallery2.jpg",
-      "/news5.jpg",
+      "/gallery4.jpg",
+      "/hero5.jpg",
+      "/gallery5.jpg",
     ],
     ai: [
       "/ai.jpg",
-      "/news6.jpg",
-      "/gallery3.jpg",
+      "/gallery6.jpg",
+      "/hero1.jpg",
+      "/gallery1.jpg",
     ],
     us: [
       "/us.jpg",
-      "/gallery4.jpg",
-      "/news5.jpg",
+      "/gallery2.jpg",
+      "/hero2.jpg",
+      "/gallery3.jpg",
     ],
     dsa: [
       "/dsa.jpg",
-      "/dr.jpg",
-      "/mri.jpg",
+      "/gallery4.jpg",
+      "/hero3.jpg",
+      "/gallery5.jpg",
     ],
   },
   innovation: {
@@ -106,8 +129,16 @@ export const IMAGES = {
     "/gallery4.jpg",
     "/gallery5.jpg",
     "/gallery6.jpg",
-    "/news5.jpg",
-    "/news6.jpg",
+    "/hero1.jpg",
+    "/hero2.jpg",
+    "/hero3.jpg",
+    "/hero4.jpg",
+    "/hero5.jpg",
+    "/mri.jpg",
+    "/ct.jpg",
+    "/dr.jpg",
+    "/ai.jpg",
+    "/us.jpg",
   ]
 };
 
@@ -132,7 +163,7 @@ export const NEWS = [
     id: 3,
     title: "让医疗更普惠：臻顶医疗启动'县域医疗提升计划'",
     date: "2025-03-10",
-    image: "/gallery3.jpg",
+    image: "/gallery1.jpg",
     desc: "致力于将高端医疗设备下沉至基层，让更多患者享受到优质的医疗服务，助力分级诊疗落地。",
     category: "社会责任"
   },
@@ -148,7 +179,7 @@ export const NEWS = [
     id: 5,
     title: "第88届CMEF圆满收官，臻顶全线新品备受瞩目",
     date: "2025-02-15",
-    image: "/news5.jpg",
+    image: "/gallery2.jpg",
     desc: "展示了从预防、诊断到治疗的全流程解决方案，吸引了来自全球各地的专家学者和合作伙伴。",
     category: "展会活动"
   },
@@ -156,7 +187,7 @@ export const NEWS = [
     id: 6,
     title: "臻顶医疗AI辅助诊断系统获FDA认证",
     date: "2025-01-20",
-    image: "/news6.jpg",
+    image: "/ai.jpg",
     desc: "标志着中国医疗AI技术走向世界，为全球医生提供更智能、更高效的诊断工具。",
     category: "产品动态"
   },
@@ -164,7 +195,7 @@ export const NEWS = [
     id: 7,
     title: "臻顶医疗出席北美放射学年会(RSNA)，展示最新AI影像成果",
     date: "2024-12-01",
-    image: "/news7.jpg",
+    image: "/gallery3.jpg",
     desc: "向全球专家展示来自中国的创新力量，获得广泛关注与好评。",
     category: "展会活动"
   },
@@ -172,7 +203,7 @@ export const NEWS = [
     id: 8,
     title: "臻顶医疗与北京大学医学部签署合作协议",
     date: "2024-11-15",
-    image: "/news8.jpg",
+    image: "/gallery4.jpg",
     desc: "双方将在医学影像AI算法研发、人才培养等方面展开深度合作。",
     category: "战略合作"
   },
@@ -180,7 +211,7 @@ export const NEWS = [
     id: 9,
     title: "臻顶医疗完成C轮融资，估值突破200亿元",
     date: "2024-10-20",
-    image: "/news9.jpg",
+    image: "/team.jpg",
     desc: "本轮融资将主要用于产品研发、市场拓展和国际化布局。",
     category: "企业动态"
   }

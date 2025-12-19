@@ -8,6 +8,31 @@ import Link from "next/link";
 
 export function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+
+  // 预加载所有hero图片
+  useEffect(() => {
+    const loadImages = async () => {
+      const loaded: boolean[] = [];
+      const promises = IMAGES.hero.map((slide, idx) => {
+        return new Promise<number>((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            loaded[idx] = true;
+            resolve(idx);
+          };
+          img.onerror = () => {
+            loaded[idx] = false;
+            resolve(idx);
+          };
+          img.src = slide.src;
+        });
+      });
+      await Promise.all(promises);
+      setImagesLoaded(loaded);
+    };
+    loadImages();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,6 +52,7 @@ export function HeroSlider() {
       <AnimatePresence mode="wait">
         {IMAGES.hero.map((slide, idx) => {
           if (idx !== current) return null;
+          const isLoaded = imagesLoaded[idx] !== false;
           
           return (
             <motion.div
@@ -38,18 +64,22 @@ export function HeroSlider() {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              {/* Background image - 直接使用img标签确保加载 */}
-              <img
-                src={slide.src}
-                alt={slide.title}
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: "center" }}
-                onError={(e) => {
-                  // 如果加载失败，使用渐变背景
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = "none";
-                }}
-              />
+              {/* Background image - 使用本地图片路径 */}
+              {isLoaded ? (
+                <img
+                  src={slide.src}
+                  alt={slide.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "center" }}
+                  loading="eager"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                  }}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900" />
+              )}
               
               {/* Overlay gradient for text readability */}
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-transparent" />
