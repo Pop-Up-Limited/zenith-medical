@@ -8,11 +8,13 @@ import { SafeImage } from "@/components/ui/SafeImage";
 import { IMAGES } from "@/lib/constants";
 
 const PRODUCT_CATEGORIES = [
-  { id: "mri", name: "磁共振成像 (MRI)", count: 5, img: IMAGES.products.mri },
-  { id: "ct", name: "计算机断层扫描 (CT)", count: 4, img: IMAGES.products.ct },
-  { id: "xr", name: "X射线成像 (XR)", count: 6, img: IMAGES.products.dr },
-  { id: "mi", name: "分子影像 (MI)", count: 2, img: IMAGES.products.rt },
-  { id: "ai", name: "智能医疗云", count: 3, img: IMAGES.products.ai },
+  { id: "mri", name: "磁共振成像 (MRI)", count: 3, img: IMAGES.products.mri },
+  { id: "ct", name: "计算机断层扫描 (CT)", count: 3, img: IMAGES.products.ct },
+  { id: "xr", name: "X射线成像 (XR)", count: 3, img: IMAGES.products.dr },
+  { id: "mi", name: "分子影像 (MI)", count: 1, img: IMAGES.products.rt },
+  { id: "ai", name: "智能医疗云", count: 1, img: IMAGES.products.ai },
+  { id: "us", name: "超声影像 (US)", count: 1, img: IMAGES.products.us },
+  { id: "dsa", name: "介入治疗 (DSA)", count: 1, img: IMAGES.products.dsa },
 ];
 
 const PRODUCTS = [
@@ -87,6 +89,38 @@ const PRODUCTS = [
     desc: "智能医疗云平台，AI辅助诊断",
     tags: ["AI诊断", "云端存储", "远程会诊"],
     img: IMAGES.products.ai
+  },
+  {
+    id: "us-portable",
+    name: "Zenith Portable US",
+    category: "us",
+    desc: "便携式超声诊断系统，随时随地精准检查",
+    tags: ["便携", "实时成像", "多探头"],
+    img: IMAGES.products.us
+  },
+  {
+    id: "dsa-angiography",
+    name: "Zenith DSA System",
+    category: "dsa",
+    desc: "数字化血管造影系统，精准介入导航",
+    tags: ["DSA", "介入导航", "3D重建"],
+    img: IMAGES.products.dsa
+  },
+  {
+    id: "ct-128",
+    name: "Zenith CT 128",
+    category: "ct",
+    desc: "128层螺旋CT，满足常规临床需求",
+    tags: ["128层", "快速扫描", "低剂量"],
+    img: IMAGES.products.ct
+  },
+  {
+    id: "dr-vertical",
+    name: "Zenith DR Vertical",
+    category: "xr",
+    desc: "立式数字化X射线摄影系统",
+    tags: ["立式", "全自动", "高清成像"],
+    img: IMAGES.products.dr
   }
 ];
 

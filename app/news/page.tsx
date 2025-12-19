@@ -30,22 +30,26 @@ export default function NewsPage() {
             </div>
           ))}
           
-          {/* Filler News for visual volume */}
-          {[4, 5, 6].map((i) => (
-             <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-               <div className="relative h-56 bg-slate-200 animate-pulse">
-                 {/* Placeholder for more news */}
-                 <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                   News Image Placeholder
-                 </div>
+          {/* Additional News with images */}
+          {NEWS.slice(6).map((news) => (
+             <div key={news.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+               <div className="relative h-56">
+                 <SafeImage 
+                   src={news.image} 
+                   alt={news.title} 
+                   fill 
+                   loading="lazy" 
+                   className="object-cover" 
+                   fallbackGradient="linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)" 
+                 />
                </div>
                <div className="p-6">
-                 <div className="text-sm text-slate-500 mb-2">2024-12-01</div>
+                 <div className="text-sm text-slate-500 mb-2">{news.date}</div>
                  <h2 className="text-xl font-bold text-slate-900 mb-3 leading-snug hover:text-blue-600 cursor-pointer">
-                   臻顶医疗出席北美放射学年会(RSNA)，展示最新AI影像成果
+                   {news.title}
                  </h2>
                  <p className="text-slate-600 mb-4 line-clamp-3">
-                   向全球专家展示来自中国的创新力量，获得广泛关注与好评。
+                   {news.desc}
                  </p>
                  <Link href="#" className="inline-flex items-center text-blue-600 font-medium hover:underline">
                    阅读全文 <ArrowRight size={16} className="ml-1" />

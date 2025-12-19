@@ -10,7 +10,7 @@ export const NAVIGATION = [
   { name: "投资者关系", href: "/investors" },
 ];
 
-// 使用更简单可靠的图片URL，确保所有图片都能显示
+// 大量图片URL，确保每个地方都有图片
 export const IMAGES = {
   hero: [
     {
@@ -69,18 +69,22 @@ export const IMAGES = {
     mi: [
       "https://images.unsplash.com/photo-1579684385180-164e6f43e112",
       "https://images.unsplash.com/photo-1582719508461-905c673771fd",
+      "https://images.unsplash.com/photo-1551076805-e2983fe3600c",
     ],
     ai: [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995",
       "https://images.unsplash.com/photo-1631217868264-e5b90bb7e13c",
+      "https://images.unsplash.com/photo-1584515933487-9d3005c010aa",
     ],
     us: [
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
       "https://images.unsplash.com/photo-1584515933487-9d3005c010aa",
+      "https://images.unsplash.com/photo-1551076805-e2983fe3600c",
     ],
     dsa: [
       "https://images.unsplash.com/photo-1551601651-2a8555f1a136",
       "https://images.unsplash.com/photo-1530497610245-94d3c16cda28",
+      "https://images.unsplash.com/photo-1516549655169-df83a06745d6",
     ],
   },
   innovation: {
@@ -102,6 +106,8 @@ export const IMAGES = {
     "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
     "https://images.unsplash.com/photo-1516549655169-df83a06745d6",
     "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b",
+    "https://images.unsplash.com/photo-1551076805-e2983fe3600c",
+    "https://images.unsplash.com/photo-1631217868264-e5b90bb7e13c",
   ]
 };
 
@@ -153,5 +159,29 @@ export const NEWS = [
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
     desc: "标志着中国医疗AI技术走向世界，为全球医生提供更智能、更高效的诊断工具。",
     category: "产品动态"
+  },
+  {
+    id: 7,
+    title: "臻顶医疗出席北美放射学年会(RSNA)，展示最新AI影像成果",
+    date: "2024-12-01",
+    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e13c",
+    desc: "向全球专家展示来自中国的创新力量，获得广泛关注与好评。",
+    category: "展会活动"
+  },
+  {
+    id: 8,
+    title: "臻顶医疗与北京大学医学部签署合作协议",
+    date: "2024-11-15",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd",
+    desc: "双方将在医学影像AI算法研发、人才培养等方面展开深度合作。",
+    category: "战略合作"
+  },
+  {
+    id: 9,
+    title: "臻顶医疗完成C轮融资，估值突破200亿元",
+    date: "2024-10-20",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    desc: "本轮融资将主要用于产品研发、市场拓展和国际化布局。",
+    category: "企业动态"
   }
 ];
