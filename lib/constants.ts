@@ -41,7 +41,7 @@ export const IMAGES = {
   ],
   products: {
     mri: "/mri.jpg",
-    ct: "/ct.jpg",
+    ct: "/istockphoto-1027752634-612x612.jpg", // 使用不同的图片，因为 ct.jpg 和 mri.jpg 是同一张
     dr: "/dr.jpg",
     rt: "/rt.jpg",
     mi: "/mi.jpg",
@@ -53,9 +53,9 @@ export const IMAGES = {
     mri: [
       "/mri_gallery1.jpg",
       "/mri_gallery2.jpg",
-      "/istockphoto-1027752634-612x612.jpg",
       "/istockphoto-1219641664-612x612.jpg",
       "/360_F_500401586_oHlx9RsARSdbOblxcXB6NUpl1vlHzZqy.jpg",
+      "/ct.jpg", // 将 ct.jpg 移到画廊中，因为产品卡片已改用其他图片
     ],
     ct: [
       "/istockphoto-1297146235-612x612.jpg",
